@@ -1,14 +1,19 @@
 package com.gzfgeh.customdialog;
 
-import android.support.v7.app.ActionBarActivity;
+import com.gzfgeh.customdialog.EditTextDialog.OnSureClickListener;
+
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements OnSureClickListener {
 	private EditTextDialog dialog;
+	private OnSureClickListener onSureClickListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +43,15 @@ public class MainActivity extends ActionBarActivity {
     public void onClick(View view){
     	if (null == dialog){
     		dialog = new EditTextDialog(this, view);
-    		
+    		dialog.setOnSureClickListener(this);
     	}
     	dialog.show();
     }
+
+
+	@Override
+	public void setOnSureClickListener(EditText editText, View view) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, editText.getText().toString(), Toast.LENGTH_SHORT).show();
+	}
 }

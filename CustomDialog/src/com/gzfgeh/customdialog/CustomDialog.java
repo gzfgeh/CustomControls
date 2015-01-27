@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class CustomDialog extends Dialog implements DialogInterface{
+	@SuppressWarnings("unused")
 	private Context context;
 	private volatile static CustomDialog instance;
 	
@@ -91,6 +92,9 @@ public class CustomDialog extends Dialog implements DialogInterface{
 		}
 		getWindow().setAttributes(
 				(android.view.WindowManager.LayoutParams) params);
+		//下面这一句一定要加上
+		getWindow().setBackgroundDrawableResource(
+				R.drawable.background_transparent);
 	}
 	
 	private void initDialog(Context context) {
@@ -197,6 +201,11 @@ public class CustomDialog extends Dialog implements DialogInterface{
 	
 	public CustomDialog setCustomDialogTitleVisibility(int visibility){
 		customDialogTopPanel.setVisibility(visibility);
+		return this;
+	}
+	
+	public CustomDialog setCustomDialogTitleDividerVisibility(int visibility){
+		customDialogTitleDivider.setVisibility(visibility);
 		return this;
 	}
 	

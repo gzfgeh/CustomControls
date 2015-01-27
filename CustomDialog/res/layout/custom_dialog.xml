@@ -88,7 +88,6 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
                     
                     <TextView
 	                    android:id="@+id/custom_dialog_title_center_text"
-	                    android:text="title"
 	                    android:textSize="22sp"
 	                    android:textColor="#FFFFFF"
 	                    android:layout_width="wrap_content"
@@ -157,12 +156,9 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
                 style="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:paddingBottom="8dip"
-                android:paddingEnd="16dip"
-                android:paddingStart="16dip"
-                android:paddingTop="8dip"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:text="Message"
                 android:textIsSelectable="true" />
         </LinearLayout>
@@ -173,7 +169,11 @@ https://github.com/android/platform_frameworks_base/blob/master/core/res/res/lay
             android:id="@+id/custom_dialog_msg_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" 
+            android:layout_weight="1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
             android:visibility="visible">
         </FrameLayout>
         <!-- 底部按钮 -->

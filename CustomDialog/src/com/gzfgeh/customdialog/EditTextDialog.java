@@ -18,6 +18,11 @@ import com.gzfgeh.customdialog.R;
 	private RelativeLayout editTextDialogLayout;
 	@SuppressWarnings("unused")
 	private EditText editText;
+	private OnSureClickListener onSureClickListener;
+	
+	public interface OnSureClickListener{
+		void setOnSureClickListener(EditText editText, View view);
+	}
 	
 	public EditTextDialog(Context context, View view){
 		super(context);
@@ -46,7 +51,8 @@ import com.gzfgeh.customdialog.R;
 		// TODO Auto-generated method stub
 		this.setCustomDialogWindow(800, LayoutParams.WRAP_CONTENT)
 			.setCustomDialogBackground("#FFFFFF")
-			.setCustomDialogTitleVisibility(View.VISIBLE)
+			.setCustomDialogTitleLeftVisibility(View.VISIBLE)
+			.setCustomDialogTitleLeftImage(R.drawable.ic_launcher)
 			.setCustomDialogTitleCenterText("Dialog")
 			.setCustomDialogCenterMessageDefaultVisibility(View.GONE)
 			.setCustomDialogMsgVisibility(View.VISIBLE)
@@ -57,6 +63,8 @@ import com.gzfgeh.customdialog.R;
 			.setCustomDialogBottomRightBtnVisibility(View.VISIBLE)
 			.setCustomDialogBottomRightBtnText("È¡Ïû")
 			.setCustomDialogBottomRightBtnClick(this)
+			.setCustomDialogTitleLeftVisibility(View.VISIBLE)
+			.setCustomDialogTitleLeftText("ok")
 			.setCustomDialogDisappearOnTouchOutside(false);
 	}
 
@@ -65,7 +73,9 @@ import com.gzfgeh.customdialog.R;
 		// TODO Auto-generated method stub
 		switch (view.getId()) {
 		case R.id.custom_dialog_bottom_left_btn:
-			Toast.makeText(context, "click left", Toast.LENGTH_SHORT).show();
+			if (null != onSureClickListener)
+				onSureClickListener.setOnSureClickListener(editText, view);
+			
 			break;
 		case R.id.custom_dialog_bottom_right_btn:
 			Toast.makeText(context, "click right", Toast.LENGTH_SHORT).show();
@@ -75,4 +85,10 @@ import com.gzfgeh.customdialog.R;
 		}
 		this.dismiss();
 	}
+
+	public void setOnSureClickListener(OnSureClickListener onSureClickListener) {
+		this.onSureClickListener = onSureClickListener;
+	}
+	
+	
 }
