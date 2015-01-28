@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/time_select_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/time_select_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:text="日期" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/time_select_year_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2014" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="#3598da"/>
+
+            <TextView
+                android:id="@+id/time_select_month_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center_vertical"
+                android:background="#3598da"/>
+
+            <TextView
+                android:id="@+id/time_select_day_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/time_select_title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/time_select_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#E1E1E1" />
+
+    <LinearLayout
+        android:id="@+id/time_select_wheel_views"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_select_title_divider"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal" >
+
+        <com.gzfgeh.customwheelview.WheelView
+            android:id="@+id/time_select_wheel_year"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.gzfgeh.customwheelview.WheelView
+            android:id="@+id/time_select_wheel_month"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.gzfgeh.customwheelview.WheelView
+            android:id="@+id/time_select_wheel_day"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>
