@@ -44,6 +44,7 @@ public class WheelView extends View {
 	private static final int TEXT_SIZE = 40;
 	/** Top and bottom items offset (to hide that) */
 	private static final int ITEM_OFFSET = TEXT_SIZE / 8;
+	
 	/** Additional width for items layout */
 	private static final int ADDITIONAL_ITEMS_SPACE = 10;
 	
@@ -961,7 +962,7 @@ public class WheelView extends View {
 		boolean needToIncrease = offset > 0 ? currentItem < adapter
 				.getItemsCount() : currentItem > 0;
 		if ((isCyclic || needToIncrease)
-				&& Math.abs((float) offset) > (float) itemHeight / 2) {
+				&& Math.abs((float) offset) > (float) ITEM_OFFSET / 2) {
 			if (offset < 0)
 				offset += itemHeight + MIN_DELTA_FOR_SCROLLING;
 			else

@@ -9,14 +9,15 @@
         android:layout_height="wrap_content"
         android:padding="5dp" >
 
-        <TextView
-            android:id="@+id/time_select_left_text"
-            android:layout_width="wrap_content"
+        <ToggleButton
+            android:id="@+id/time_select_toggle_button"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:padding="10dp"
-            android:text="日期" />
+            android:textOn="日期"
+            android:textOff="时间"
+            android:padding="5dp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -32,11 +33,11 @@
                 android:layout_height="wrap_content"
                 android:text="2014" />
 
-            <View
-                android:layout_width="5dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:background="#3598da"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/time_select_month_text"
@@ -44,17 +45,49 @@
                 android:layout_height="wrap_content"
                 android:text="12" />
 
-            <View
-                android:layout_width="5dp"
-                android:layout_height="1dp"
-                android:layout_gravity="center_vertical"
-                android:background="#3598da"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:layout_gravity="center_vertical"/>
 
             <TextView
                 android:id="@+id/time_select_day_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20" />
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_select_hour_text"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:layout_gravity="center_vertical"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_select_minute_text"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:layout_gravity="center_vertical"/>
+            
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_select_second_text"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -66,32 +99,67 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="#E1E1E1" />
-
-    <LinearLayout
-        android:id="@+id/time_select_wheel_views"
+	
+    <FrameLayout 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/time_select_title_divider"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal" >
-
-        <com.gzfgeh.customwheelview.WheelView
-            android:id="@+id/time_select_wheel_year"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <com.gzfgeh.customwheelview.WheelView
-            android:id="@+id/time_select_wheel_month"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <com.gzfgeh.customwheelview.WheelView
-            android:id="@+id/time_select_wheel_day"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_below="@id/time_select_title_divider">
+        
+        <LinearLayout
+	        android:id="@+id/time_select_date_wheel_views"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="center_horizontal"
+	        android:visibility="visible">
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_year"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_month"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_day"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+    	</LinearLayout>
+    	
+        <LinearLayout
+	        android:id="@+id/time_select_time_wheel_views"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:gravity="center_horizontal"
+	        android:visibility="gone">
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_hour"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_minute"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+	
+	        <com.gzfgeh.customwheelview.WheelView
+	            android:id="@+id/time_select_wheel_second"
+	            android:layout_width="100dp"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1" />
+    	</LinearLayout>
+    	
+    </FrameLayout>
+    
 
 </RelativeLayout>
